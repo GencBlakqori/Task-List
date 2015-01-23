@@ -1,0 +1,118 @@
+.main-title{
+	color:#009587;
+	margin: 20px 0;
+}
+
+p{
+	margin: 0;
+}
+
+label{
+	margin: 15px 0 0 0;
+}
+
+.form-container{
+	margin:20px 0;
+}
+
+.task-list-button{
+	margin: 10px 0;
+}
+
+.task-list,
+.container{
+	width: 650px;
+	position: relative;
+	margin: 0 auto;
+}
+
+.task-list{
+	margin: 10px auto;
+}
+
+.delete{
+	position: absolute;
+	top: 0;
+	right: 0;
+	cursor: pointer;
+	margin: 5px;
+	opacity: 0.9;
+}
+.edit{
+	position: absolute;
+	top: 0;
+	right: 20px;
+	cursor: pointer;
+	margin: 5px;
+}
+
+.checkbox{
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	margin: 5px !important;
+
+}
+
+.edit,
+.delete-task{
+	opacity: 0;
+	-webkit-transition: opacity 0.6s ease;
+	-o-transition: opacity 0.6s ease;
+	transition: opacity 0.6s ease;
+}
+
+
+.task-list li{
+	position: relative;
+}
+
+.task-list li:hover .edit{
+	opacity: 0.9;
+}
+
+.task-list li:hover .delete-task{
+	opacity: 0.9;
+}
+
+.delete:hover{
+	opacity: 1;
+}
+
+.edit:hover{
+	opacity: 1;
+}
+
+
+
+.task-edit{
+	display: none;
+}
+.task-container,
+.task-edit{
+	padding: 10px 15px;
+}
+
+.panel-body{
+	display: none;
+}
+
+.active{
+	display: block;
+}
+
+.panel-heading{
+	cursor: pointer;
+}
+
+ul{
+	padding: 10px;
+}
+
+ul li{
+	margin: 10px 0;
+}
+
+.done{
+	background-color: #e3e3e3;
+}

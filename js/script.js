@@ -48,8 +48,9 @@
 		},
 
 		cancleEdit: function(){
-			$(this).closest('.task-list').find('.task-container').slideToggle(function(){
-				$(this).closest('.task-list').find('.task-edit').slideToggle();
+			var $this = $(this);
+			$this.closest('.task-list').find('.task-container').slideToggle(function(){
+				$this.closest('.task-list').find('.task-edit').slideToggle();
 			});
 		},
 
@@ -84,28 +85,30 @@
 		},
 
 		editTask: function(){
-			var parentDiv = $(this).closest(".task-list"),
+			var $this = $(this),
+				parentDiv = $this.closest(".task-list"),
 				self = Tasks,
-				taskID = parseInt($(this).closest('li').data('task_id')),
-				taskListID = parseInt($(this).closest('.task-list').data('id')),
+				taskID = parseInt($this.closest('li').data('task_id')),
+				taskListID = parseInt($this.closest('.task-list').data('id')),
 				i=0;
 			parentDiv.find('.task-edit').find('.task-container-task').val(self.tasksContainer[taskListID].tasks[taskID].title),
 			parentDiv.find('.task-edit').find('.task-container-description').val(self.tasksContainer[taskListID].tasks[taskID].description);
 			parentDiv.find('.task-edit').find('.save-task').data('id' ,taskID);
-			$(this).closest('.task-list').find('.task-container').slideToggle(function(){
-				$(this).closest('.task-list').find('.task-edit').slideToggle();
+			$this.closest('.task-list').find('.task-container').slideToggle(function(){
+				$this.closest('.task-list').find('.task-edit').slideToggle();
 			});
 		},
 
 		saveEditedTask: function(){
-			var parentDiv = $(this).closest(".task-list"),
+			var $this = $(this),
+				parentDiv = $this.closest(".task-list"),
 				self = Tasks,
 				task = parentDiv.find('.task-edit').find('.task-container-task').val(),
 				taskDescription = parentDiv.find('.task-edit').find('.task-container-description').val();
 			parentDiv.find('.task-edit').find('.task-container-task').val('');
 			parentDiv.find('.task-edit').find('.task-container-description').val('');
 			var index = parseInt(parentDiv.data('id')),
-				taskID = parseInt($(this).data('id'));
+				taskID = parseInt($this.data('id'));
 			self.removeAllActiveClasses();
 			self.tasksContainer[index].active="active";
 			self.tasksContainer[index].tasks[taskID].title=task;
@@ -114,10 +117,11 @@
 		},
 
 		removeTask: function(){
-			var confirm = window.confirm('Do you really want to delete the task ?');
+			var confirm = window.confirm('Do you really want to delete the task ?'),
+				$this = $(this);
 			if(confirm){
-				var taskID = parseInt($(this).closest('li').data('task_id')),
-					taskListID = parseInt($(this).closest('.task-list').data('id')),
+				var taskID = parseInt($this.closest('li').data('task_id')),
+					taskListID = parseInt($this.closest('.task-list').data('id')),
 					self = Tasks;
 				self.tasksContainer[taskListID].tasks.splice(taskID,1);
 				self.removeAllActiveClasses();
